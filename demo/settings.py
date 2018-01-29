@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
+    'djangocms_spa',
     'demo'
 )
 
@@ -207,3 +208,20 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+DJANGOCMS_SPA_DEFAULT_TEMPLATE = 'pages/content.html'
+
+DJANGOCMS_SPA_TEMPLATES = {
+    'pages/content.html': {
+        'frontend_component_name': 'content',
+        'partials': ['menu', 'meta', 'footer']
+    },
+    'pages/content_with_section_navigation.html': {
+        'frontend_component_name': 'content-with-section-navigation',
+        'partials': ['menu', 'meta', 'footer']
+    },
+}
+
+DJANGOCMS_SPA_PARTIAL_CALLBACKS = {
+    'menu': 'djangocms_spa.partial_callbacks.get_cms_menu_data_dict'
+}
