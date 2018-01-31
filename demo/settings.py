@@ -149,7 +149,9 @@ INSTALLED_APPS = (
     'djangocms_googlemap',
     'djangocms_video',
     'djangocms_spa',
-    'demo'
+    'djangocms_spa_vue_js',
+    'demo',
+    'contents',
 )
 
 LANGUAGES = (
@@ -209,19 +211,11 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters'
 )
 
-DJANGOCMS_SPA_DEFAULT_TEMPLATE = 'pages/content.html'
+DJANGOCMS_SPA_DEFAULT_TEMPLATE = 'fullwidth.html'
 
 DJANGOCMS_SPA_TEMPLATES = {
-    'pages/content.html': {
+    'fullwidth.html': {
         'frontend_component_name': 'content',
-        'partials': ['menu', 'meta', 'footer']
+        'partials': []
     },
-    'pages/content_with_section_navigation.html': {
-        'frontend_component_name': 'content-with-section-navigation',
-        'partials': ['menu', 'meta', 'footer']
-    },
-}
-
-DJANGOCMS_SPA_PARTIAL_CALLBACKS = {
-    'menu': 'djangocms_spa.partial_callbacks.get_cms_menu_data_dict'
 }
